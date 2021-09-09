@@ -1,9 +1,10 @@
 import React from "react";
+import LoginRouter from "./routes/LoginRouter";
 
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <LoginRouter />
     </div>
   );
 }
