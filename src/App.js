@@ -1,11 +1,11 @@
 import React from "react";
-import LoginRouter from "./routes/LoginRouter";
+import HomeRouter from "./routes/HomeRouter";
 
 function App() {
   return (
-    <div>
-      <LoginRouter />
-    </div>
+    <>
+      <HomeRouter />
+    </>
   );
 }
 
