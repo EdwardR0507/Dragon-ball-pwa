@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ name, description, species, id }) => {
+const Card = ({ name, species, id }) => {
   const path = `/assets/${species[0].toLowerCase()}-${id}.png`;
 
   return (
