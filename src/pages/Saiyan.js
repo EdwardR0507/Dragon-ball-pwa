@@ -6,8 +6,6 @@ const Saiyan = () => {
     (character) => character.species === "Saiyan"
   );
 
-  console.log(saiyans);
-
   return (
     <div className="container mt-3">
       <h1>Saiyans</h1>
