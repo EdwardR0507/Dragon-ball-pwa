@@ -11,7 +11,6 @@ const Character = ({ history }) => {
     (character) => character.id === id
   );
   const path = `/assets/${species[0].toLowerCase()}-${id}.png`;
-  console.log(path);
   return (
     <div className="container row mt-5">
       <div className="col-8">

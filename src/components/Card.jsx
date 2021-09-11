@@ -14,7 +14,7 @@ const Card = ({ name, species, id }) => {
         <h5 className="card-title">{name}</h5>
         <p className="card-link">
           <Link className="card-link" to={`/character/${id}`}>
-            Ver más
+            Show more
           </Link>
         </p>
       </div>
