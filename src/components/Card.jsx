@@ -7,7 +7,7 @@ const Card = ({ name, species, id }) => {
   return (
     <div
       className="card m-3 col-12 col-md-4 mx-auto"
-      style={{ width: "12.5rem", height: "50%" }}
+      style={{ width: "12.5rem", height: "auto" }}
     >
       <img className="card-img-top" src={path} alt={id} />
       <div className="card-body">
