@@ -1,8 +1,15 @@
 import React from "react";
-import { Route } from "react-router";
+import { Redirect, Route } from "react-router";
 
 const PrivateRouter = ({ auth, component: Component, ...rest }) => {
-  return <Route {...rest} component={() => <Component />} />;
+  return (
+    <Route
+      {...rest}
+      component={(props) =>
+        auth.Authenticated ? <Component {...props} /> : <Redirect to="/Home" />
+      }
+    />
+  );
 };
 
 export default PrivateRouter;
