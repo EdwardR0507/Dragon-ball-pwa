@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Search from "../pages/Search";
 import Saiyan from "../pages/Saiyan";
 import Human from "../pages/Human";
@@ -14,6 +14,7 @@ const AppRoutes = () => {
         <Route exact path="/saiyan" component={Saiyan} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/character/:id" component={Character} />
+        <Redirect from="/" to="/saiyan" />
       </Switch>
     </>
   );

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AppRoutes from "./AppRouter";
+import AppRouter from "./AppRouter";
 import Home from "../pages/Home";
+import { AuthContext } from "../context/AuthContext";
+import PublicRouter from "./PublicRouter";
+import PrivateRouter from "./PrivateRouter";
 const HomeRouter = () => {
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <Router>
-      <AppRoutes />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <PublicRouter path="/home" auth={isAuthenticated} component={Home} />
+        <PrivateRouter path="/" auth={isAuthenticated} component={AppRouter} />
       </Switch>
     </Router>
   );

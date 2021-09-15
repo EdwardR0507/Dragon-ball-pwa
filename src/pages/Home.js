@@ -1,6 +1,14 @@
-import React from "react";
-const Home = ({ history }) => {
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { ACTIONS } from "../constants";
+import { useHistory } from "react-router";
+const Home = () => {
+  const { dispatch } = useContext(AuthContext);
+
+  const history = useHistory();
+
   const handleClick = () => {
+    dispatch({ type: ACTIONS.LOGIN });
     history.push("/saiyan");
   };
   return (
