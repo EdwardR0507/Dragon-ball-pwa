@@ -6,7 +6,11 @@ const PrivateRouter = ({ auth, component: Component, ...rest }) => {
     <Route
       {...rest}
       component={(props) =>
-        auth.Authenticated ? <Component {...props} /> : <Redirect to="/Home" />
+        auth.isAuthenticated ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/Home" />
+        )
       }
     />
   );
