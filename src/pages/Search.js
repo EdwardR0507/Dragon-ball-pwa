@@ -30,7 +30,7 @@ const Search = ({ history }) => {
   }, [search.value]);
 
   return (
-    <div className="container">
+    <div className="container mt-3">
       <h1>Search view</h1>
       <hr />
       <div className="row">

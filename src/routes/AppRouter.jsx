@@ -1,13 +1,30 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Search from "../pages/Search";
-import Saiyan from "../pages/Saiyan";
-import Human from "../pages/Human";
-import NavBar from "../components/NavBar";
-import Character from "../pages/Character";
+
+const NavBar = lazy(() => import("../components/NavBar"));
+const Search = lazy(() => import("../pages/Search"));
+const Saiyan = lazy(() => import("../pages/Saiyan"));
+const Human = lazy(() => import("../pages/Human"));
+const Character = lazy(() => import("../pages/Character"));
+
+const Spinner = () => {
+  return (
+    <div style={{ height: "90vh" }}>
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "100%" }}
+      >
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const AppRoutes = () => {
   return (
-    <>
+    <Suspense fallback={Spinner()}>
       <NavBar />
       <Switch>
         <Route exact path="/human" component={Human} />
@@ -16,7 +33,7 @@ const AppRoutes = () => {
         <Route exact path="/character/:id" component={Character} />
         <Redirect from="/" to="/saiyan" />
       </Switch>
-    </>
+    </Suspense>
   );
 };
 
