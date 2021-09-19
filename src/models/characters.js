@@ -36,21 +36,21 @@ export const Characters = [
   },
   {
     id: "super_buu",
-    name: "Super Majin Buu",
+    name: "Super Buu",
     description:
       "Is the result of Evil Buu eating Good Buu in a chocolate form. This new Majin Buu has tremendously more power and increased mental capacity than the previous incarnation. In this form, Buu has very little patience and extremely dangerous fits of anger, even possessing the power to rip through dimensional walls if angered enough.",
     species: "Majin",
   },
   {
     id: "evil_buu",
-    name: "Evil Majin Buu",
+    name: "Evil Buu",
     description:
       "Evil Buu was a tall, thin, gray, emaciated creature which appeared after Majin Buu dispelled the evil from his body.",
     species: "Majin",
   },
   {
     id: "kid_buu",
-    name: "Kid Majin Buu",
+    name: "Kid Buu",
     description:
       "Kid Buu is the original, pure form of Majin Buu. Unlike his other forms, this form of Buu's thought process is seen to be irrational and spontaneous, even destroying his own body to destroy the Earth. ",
     species: "Majin",

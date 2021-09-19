@@ -9,10 +9,10 @@ const Card = ({ name, species, id }) => {
       className="card m-3 col-12 col-md-4 mx-auto"
       style={{ width: "12.5rem", height: "auto" }}
     >
-      <img className="card-img-top" src={path} alt={id} />
+      <img loading="lazy" className="card-img-top" src={path} alt={id} />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <p className="card-link">
+        <p className="card-text">
           <Link className="card-link" to={`/character/${id}`}>
             Show more
           </Link>
