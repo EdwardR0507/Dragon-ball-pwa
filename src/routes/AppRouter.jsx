@@ -5,6 +5,7 @@ const NavBar = lazy(() => import("../components/NavBar"));
 const Search = lazy(() => import("../pages/Search"));
 const Saiyan = lazy(() => import("../pages/Saiyan"));
 const Human = lazy(() => import("../pages/Human"));
+const Characters = lazy(() => import("../pages/AllCharacters"));
 const Character = lazy(() => import("../pages/Character"));
 
 const Spinner = () => {
@@ -27,6 +28,7 @@ const AppRoutes = () => {
     <Suspense fallback={Spinner()}>
       <NavBar />
       <Switch>
+        <Route exact path="/characters" component={Characters} />
         <Route exact path="/human" component={Human} />
         <Route exact path="/saiyan" component={Saiyan} />
         <Route exact path="/search" component={Search} />

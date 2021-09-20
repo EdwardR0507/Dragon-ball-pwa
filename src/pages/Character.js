@@ -12,19 +12,22 @@ const Character = ({ history }) => {
   );
   const path = `/assets/${species[0].toLowerCase()}-${id}.png`;
   return (
-    <div className="container row mt-5">
-      <div className="col-8">
+    <div className="container mx-auto mx-md-0 row my-5">
+      <div className="col-12 col-md-8">
         <img
           className="img-fluid"
-          style={{ width: "70%", height: "auto" }}
+          style={{ width: "100%", height: "auto" }}
           src={path}
           alt={id}
         />
       </div>
-      <div className="col-4">
+      <div className="col-12 col-md-4">
         <h1 className="mt-3 text-center">{name}</h1>
         <p>{description}</p>
-        <button className="btn btn-outline-warning" onClick={handleBack}>
+        <button
+          className="btn btn-outline-warning col-12 col-md-4"
+          onClick={handleBack}
+        >
           Go Back
         </button>
       </div>

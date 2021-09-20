@@ -36,6 +36,16 @@ const NavBar = () => {
                 activeClassName="active text-white"
                 className="nav-link"
                 aria-current="page"
+                to="/characters"
+              >
+                All Characters
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active text-white"
+                className="nav-link"
+                aria-current="page"
                 to="/saiyan"
               >
                 Saiyans
