@@ -33,7 +33,7 @@ const AppRoutes = () => {
         <Route exact path="/saiyan" component={Saiyan} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/character/:id" component={Character} />
-        <Redirect from="/" to="/saiyan" />
+        <Redirect from="/" to="/characters" />
       </Switch>
     </Suspense>
   );

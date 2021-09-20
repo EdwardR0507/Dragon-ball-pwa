@@ -5,12 +5,11 @@ import queryString from "query-string";
 import { Characters } from "../models/Characters";
 import Card from "../components/Card";
 const Search = ({ history }) => {
-  const [characters, setCharacters] = useState([]);
-
   const location = useLocation();
   const { q = "" } = queryString.parse(location.search);
 
-  const search = useField("text", q);
+  const [characters, setCharacters] = useState([]);
+  const search = useField({ type: "text", initialState: q });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +17,8 @@ const Search = ({ history }) => {
   };
 
   useEffect(() => {
-    if (search.value.trim() !== "") {
-      const value = search.value.toLocaleLowerCase();
+    if (search.value.toString().trim() !== "") {
+      const value = search.value.toString().toLocaleLowerCase();
       const characterSearch = Characters.filter((el) =>
         el.name.toLocaleLowerCase().includes(value)
       );
@@ -27,14 +26,14 @@ const Search = ({ history }) => {
     } else {
       setCharacters([]);
     }
-  }, [search.value]);
+  }, [q]);
 
   return (
     <div className="container mt-3">
       <h1>Search view</h1>
       <hr />
       <div className="row">
-        <div className="col-6">
+        <div className="col-12">
           <form onSubmit={handleSubmit}>
             <div className="form-group mb-2">
               <label htmlFor="search" className="form-label w-100">
@@ -54,14 +53,16 @@ const Search = ({ history }) => {
             </button>
           </form>
         </div>
-        <div className="col-6">
+        <div className="mt-2 col-12">
           <h2>Results: {characters.length}</h2>
           {characters.length === 0 && (
             <div className="alert alert-info text-center">No results</div>
           )}
-          {characters.map((character) => (
-            <Card key={character.id} {...character} />
-          ))}
+          <div className="row">
+            {characters.map((character) => (
+              <Card key={character.id} {...character} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
