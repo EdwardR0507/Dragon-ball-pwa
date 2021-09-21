@@ -26,6 +26,7 @@ const Search = ({ history }) => {
     } else {
       setCharacters([]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q]);
 
   return (

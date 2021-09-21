@@ -9,7 +9,7 @@ const Home = () => {
 
   const handleClick = () => {
     dispatch({ type: ACTIONS.LOGIN });
-    history.push("/saiyan");
+    history.push("/characters");
   };
   return (
     <div className="container mt-5 text-center d-flex flex-column justify-content-center">
