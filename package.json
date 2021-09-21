@@ -6,8 +6,7 @@
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
-    ],
-    "inlineCss": true
+    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
