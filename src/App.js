@@ -26,7 +26,7 @@ function App() {
         dispatch,
       }}
     >
-      <HomeRouter isAuthenticated={isAuthenticated} dispatch={dispatch} />
+      <HomeRouter />
     </AuthContext.Provider>
   );
 }
