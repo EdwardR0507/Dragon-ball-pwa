@@ -1,15 +1,16 @@
 import React from "react";
-import { useParams, Redirect } from "react-router";
+import { Navigate, useParams, useNavigate } from "react-router";
 import { Characters } from "../models/Characters";
-const Character = ({ history }) => {
+const Character = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const handleBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   const characterSelected = Characters.find((character) => character.id === id);
   if (!characterSelected) {
-    return <Redirect to="/" />;
+    return <Navigate to="/" />;
   }
   const { species, name, description } = characterSelected;
   const path = `/assets/${species[0].toLowerCase()}-${id}.png`;

@@ -1,19 +1,10 @@
-import React from "react";
-import { Redirect, Route } from "react-router";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { Navigate } from "react-router";
 
-const PrivateRouter = ({ auth, component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        auth.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/home" />
-        )
-      }
-    />
-  );
+const PrivateRouter = ({ children }) => {
+  const { isAuthenticated } = useContext(AuthContext);
+  return isAuthenticated.isAuthenticated ? children : <Navigate to="/home" />;
 };
 
 export default PrivateRouter;

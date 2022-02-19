@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 const NavBar = lazy(() => import("../components/NavBar"));
 const Search = lazy(() => import("../pages/Search"));
@@ -27,14 +27,14 @@ const AppRoutes = () => {
   return (
     <Suspense fallback={Spinner()}>
       <NavBar />
-      <Switch>
-        <Route exact path="/characters" component={Characters} />
-        <Route exact path="/human" component={Human} />
-        <Route exact path="/saiyan" component={Saiyan} />
-        <Route exact path="/search" component={Search} />
-        <Route exact path="/character/:id" component={Character} />
-        <Redirect from="/" to="/characters" />
-      </Switch>
+      <Routes>
+        <Route end path="/characters" element={<Characters />} />
+        <Route end path="/humans" element={<Human />} />
+        <Route end path="/saiyans" element={<Saiyan />} />
+        <Route end path="/search" element={<Search />} />
+        <Route end path="/character/:id" element={<Character />} />
+        <Route path="*" element={<Navigate end to="/characters" />} />
+      </Routes>
     </Suspense>
   );
 };

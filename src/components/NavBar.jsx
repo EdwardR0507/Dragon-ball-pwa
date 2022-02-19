@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ACTIONS } from "../constants";
 import { AuthContext } from "../context/AuthContext";
 const NavBar = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { dispatch } = useContext(AuthContext);
 
   const handleLogout = () => {
     dispatch({ type: ACTIONS.LOGOUT });
-    history.replace("/home");
+    navigate("/home");
   };
 
   return (
@@ -33,8 +33,9 @@ const NavBar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
                 aria-current="page"
                 to="/characters"
               >
@@ -43,28 +44,31 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
                 aria-current="page"
-                to="/saiyan"
+                to="/saiyans"
               >
                 Saiyans
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
                 aria-current="page"
-                to="/human"
+                to="/humans"
               >
                 Humans
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
                 aria-current="page"
                 to="/search"
               >

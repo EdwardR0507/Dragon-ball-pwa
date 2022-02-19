@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import useField from "../hooks/useField";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import queryString from "query-string";
 import { Characters } from "../models/Characters";
 import Card from "../components/Card";
-const Search = ({ history }) => {
+const Search = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { q = "" } = queryString.parse(location.search);
 
   const [characters, setCharacters] = useState([]);
@@ -13,7 +14,7 @@ const Search = ({ history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push(`?q=${search.value}`);
+    navigate(`?q=${search.value}`);
   };
 
   useEffect(() => {

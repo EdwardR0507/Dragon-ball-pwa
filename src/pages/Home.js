@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ACTIONS } from "../constants";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 const Home = () => {
   const { dispatch } = useContext(AuthContext);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     dispatch({ type: ACTIONS.LOGIN });
-    history.push("/characters");
+    navigate("/characters");
   };
   return (
     <div className="container mt-5 text-center d-flex flex-column justify-content-center">
