@@ -23,4 +23,28 @@ describe("Test on <Home />", () => {
     );
     expect(screen.getByText("Start")).toBeInTheDocument();
   });
+
+  test("should be login if press the start button", () => {
+    const dispatch = jest.fn();
+    const isAuthenticated = {
+      isAuthenticated: true,
+    };
+    render(
+      <AuthContext.Provider
+        value={{
+          isAuthenticated,
+          dispatch,
+        }}
+      >
+        <MemoryRouter initialEntry={`/`}>
+          <Home />
+        </MemoryRouter>
+      </AuthContext.Provider>
+    );
+    const button = screen.getByText("Start");
+    button.click();
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "LOGIN",
+    });
+  });
 });
