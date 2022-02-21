@@ -13,7 +13,11 @@ const Home = () => {
   };
   return (
     <div className="container mt-5 text-center d-flex flex-column justify-content-center">
-      <img src="/assets/animate.gif" class="img-fluid" alt="animation" />
+      <img
+        src="/assets/animate.gif"
+        className="img-fluid"
+        alt="kid-goku-animation"
+      />
       <button onClick={handleClick} className=" my-5 btn btn-primary">
         Start
       </button>
